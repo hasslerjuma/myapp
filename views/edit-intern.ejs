@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Intern</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="box">
+        <i class="fa-solid fa-user-pen" style="font-size: 40px; color: #667eea; margin-bottom: 15px;"></i>
+        <h1>Edit Intern</h1>
+        <form method="POST" action="/interns/edit/<%= intern.id %>">
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="name" value="<%= intern.name %>">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" name="phone" value="<%= intern.phone %>">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-code"></i>
+                <input type="text" name="skill" value="<%= intern.skill %>">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-spinner"></i>
+                <select name="progress">
+                    <option value="Not Started" <%= intern.progress === 'Not Started' ? 'selected' : '' %>>Not Started</option>
+                    <option value="In Progress" <%= intern.progress === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+                    <option value="Completed" <%= intern.progress === 'Completed' ? 'selected' : '' %>>Completed</option>
+                </select>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+        <p><a href="/">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

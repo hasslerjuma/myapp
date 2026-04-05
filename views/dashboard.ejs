@@ -48,7 +48,7 @@
                             <td><%= intern.phone %></td>
                             <td><%= intern.skill %></td>
                             <td><%= intern.progress %></td>
-                            <td><a href="/interns/delete/<%=intern.id %>" class="delete-btn"><i class="fa-solid fa-trash"></i></a></td>
+                            <td><a href="/interns/edit/<%=intern.id %>" class="edit-btn"><i class="fa-solid fa-pen"></i></a> <a href="/interns/delete/<%=intern.id %>" class="delete-btn"><i class="fa-solid fa-trash"></i></a></td>
                         </tr>
                     <% }) %>
                 </table>

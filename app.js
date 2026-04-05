@@ -107,6 +107,36 @@ app.get('/interns/delete/:id', (req, res) => {
     }
 });
 
+app.get('/interns/edit/:id', (req, res) => {
+    if (req.session.username) {
+        const id = parseInt(req.params.id);
+        const intern = interns.find(i => i.id === id);
+        if (intern) {
+            res.render('edit-intern', { intern: intern });
+        } else {
+            res.redirect('/');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.post('/interns/edit/:id', (req, res) => {
+    if (req.session.username) {
+        const id = parseInt(req.params.id);
+        const intern = interns.find(i => i.id === id);
+        if (intern) {
+            intern.name = req.body.name;
+            intern.phone = req.body.phone;
+            intern.skill = req.body.skill;
+            intern.progress = req.body.progress;
+        }
+        res.redirect('/');
+    } else {
+        res.redirect('/login');
+    }
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });

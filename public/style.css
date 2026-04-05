@@ -205,3 +205,14 @@ th {
 .delete-btn:hover {
     color: #a71d2a;
 }
+
+.edit-btn {
+    color: #667eea;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.edit-btn:hover {
+    color: #5a6fd6;
+}
