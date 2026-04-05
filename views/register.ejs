@@ -9,6 +9,9 @@
     <div class="box">
         <i class="fa-solid fa-user-plus" style="font-size: 40px; color: #667eea; margin-bottom: 15px;"></i>
         <h1>Register</h1>
+        <% if (error) { %>
+                <p style="color: red; font-size: 14px;"><i class="fa-solid fa-exclamation-circle"></i> <%= error %></p>
+        <% } %>
         <form method="POST" action="/register">
             <div class="input-group">
                 <i class="fa-solid fa-user"></i>

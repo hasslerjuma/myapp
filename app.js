@@ -29,7 +29,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', {error: null});
 });
 
 app.post('/login', (req, res) => {
@@ -39,7 +39,7 @@ app.post('/login', (req, res) => {
         req.session.username = username;
         res.redirect('/');
     } else {
-        res.send('Invalid username or password.');
+        res.render('login', {error: 'Invalid username or password.'});
     }
 });
 
@@ -49,14 +49,14 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-    res.render('register');
+    res.render('register', {error: null});
 });
 
 app.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     if (users[username]) {
-        res.send('Username already exists.');
+        res.render('register', {error: 'Username already exists.'});
     } else {
         users[username] = password;
         res.redirect('/login');
