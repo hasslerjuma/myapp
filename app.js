@@ -94,6 +94,19 @@ app.post('/interns/add', (req, res) => {
     }
 });
 
+app.get('/interns/delete/:id', (req, res) => {
+    if (req.session.username) {
+        const id = parseInt(req.params.id);
+        const index = interns.findIndex(intern => intern.id === id);
+        if (index !== -1) {
+            interns.splice(index, 1);
+        }
+        res.redirect('/');
+    } else {
+        res.redirect('/login');
+    }
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
