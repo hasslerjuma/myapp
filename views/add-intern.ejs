@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Intern</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="box">
+        <i class="fa-solid fa-user-plus" style="font-size: 40px; color: #667eea; margin-bottom: 15px;"></i>
+        <h1>Add Intern</h1>
+
+        <% if (error) { %>
+            <p style="color: red; font-size: 14px;"><i class="fa-solid fa-circle-exclamation"></i> <%= error %></p>
+        <% } %>
+
+        <form method="POST" action="/interns/add">
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="name" placeholder="Full Name">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" name="phone" placeholder="Phone Number">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-code"></i>
+                <input type="text" name="skill" placeholder="Skill (e.g. Python, DSA)">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-spinner"></i>
+                <select name="progress">
+                    <option value="Not Started">Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+            <button type="submit">Add Intern</button>
+        </form>
+        <p><a href="/">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

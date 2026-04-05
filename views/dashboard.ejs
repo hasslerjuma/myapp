@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intern Manager</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="top-bar">
+            <h1><i class="fa-solid fa-users-gear"></i> Intern Manager</h1>
+            <div>
+                <span>Welcome, <%= name %></span>
+                <a class="logout" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <i class="fa-solid fa-users"></i>
+                <h2><%= interns.length %></h2>
+                <p>Total Interns</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>All Interns</h2>
+                <a class="btn" href="/interns/add"><i class="fa-solid fa-plus"></i> Add Intern</a>
+            </div>
+
+            <% if (interns.length === 0) { %>
+                <p class="empty">No interns added yet.</p>
+            <% } else { %>
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Skill</th>
+                        <th>Progress</th>
+                    </tr>
+                    <% interns.forEach((intern, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= intern.name %></td>
+                            <td><%= intern.phone %></td>
+                            <td><%= intern.skill %></td>
+                            <td><%= intern.progress %></td>
+                        </tr>
+                    <% }) %>
+                </table>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

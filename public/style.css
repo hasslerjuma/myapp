@@ -1,10 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
@@ -15,6 +12,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     width: 320px;
     text-align: center;
+    margin: 100px auto;
 }
 
 h1 {
@@ -38,7 +36,7 @@ h1 {
     width: 20px;
 }
 
-.input-group input {
+.input-group input, .input-group select {
     flex: 1;
     padding: 12px 10px;
     border: none;
@@ -66,26 +64,134 @@ button:hover {
 
 a.logout {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 25px;
+    padding: 8px 16px;
     background: #dc3545;
     color: white;
     text-decoration: none;
     border-radius: 6px;
     transition: background 0.3s;
+    font-size: 14px;
 }
 
 a.logout:hover {
     background: #c82333;
 }
 
-.welcome-icon {
-    font-size: 50px;
-    color: #667eea;
-    margin-bottom: 15px;
-}
-
 p {
     color: #666;
     margin-top: 10px;
+}
+
+.dashboard {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.top-bar h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #667eea;
+}
+
+.top-bar span {
+    color: #666;
+    margin-right: 15px;
+}
+
+.stats {
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    display: inline-block;
+    width: 150px;
+}
+
+.stat-card i {
+    font-size: 24px;
+    color: #667eea;
+}
+
+.stat-card h2 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.stat-card p {
+    margin: 0;
+    color: #999;
+    font-size: 14px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.btn {
+    padding: 8px 16px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #5a6fd6;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    color: #999;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.empty {
+    text-align: center;
+    color: #999;
+    padding: 20px;
 }

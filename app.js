@@ -7,6 +7,7 @@ app.set('view engine','ejs');
 app.set('views', './views');
 app.use(express.static('public'));
 const users = {};
+const interns = [];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
@@ -18,7 +19,7 @@ app.use(session({
 
 app.get('/', (req, res) => {
     if (req.session.username) {
-        res.render('home',{name: req.session.username});
+        res.render('dashboard',{name: req.session.username, interns: interns});
     } else {
         res.redirect('/login');
     }
@@ -60,6 +61,35 @@ app.post('/register', (req, res) => {
         res.render('register', {error: 'Username already exists.'});
     } else {
         users[username] = password;
+        res.redirect('/login');
+    }
+});
+
+app.get('/interns/add', (req, res) => {
+    if (req.session.username) {
+        res.render('add-intern', { error: null });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.post('/interns/add', (req, res) => {
+    if (req.session.username) {
+        const { name, phone, skill, progress } = req.body;
+
+        if (!name || !phone || !skill) {
+            res.render('add-intern', { error: 'Please fill in all fields' });
+        } else {
+            interns.push({
+                id: interns.length + 1,
+                name: name,
+                phone: phone,
+                skill: skill,
+                progress: progress
+            });
+            res.redirect('/');
+        }
+    } else {
         res.redirect('/login');
     }
 });
